@@ -42,6 +42,7 @@ Domain: Entities, Repository Interfaces, Use Cases, and Strategy Rules.
 Presentation: UI Views, Components, and Cubits.
 
 # APP DEMOS
-iOS Demo: Watch here
+iOS Demo: https://github.com/user-attachments/assets/7df8f809-43da-402f-8b63-c3a6514f0701
 
-Android Demo: Watch here
+Android Demo: https://github.com/user-attachments/assets/dda66691-ee98-4127-8b0c-8d4dbf8f2af5
+
