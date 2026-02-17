@@ -1,4 +1,5 @@
 class AppStrings {
+  AppStrings._();
   static const String appBarTitle = "Transactions";
   static const String totalRevenue = "Total Commission Revenue";
   static const String baseCurrency = "Base: EUR";
@@ -10,4 +11,5 @@ class AppStrings {
   static const String loadData = "Load JSON Data";
   static const String errorOccurred = "Something went wrong";
   static const String tryAgain = "Try Again";
+  static const String transactionLoadError =   "An error occurred while loading your transactions. Please try again.";
 }

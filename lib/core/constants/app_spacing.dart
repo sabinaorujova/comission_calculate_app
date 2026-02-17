@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppSpacing {
+      AppSpacing._();
+
   static EdgeInsets get pagePadding => EdgeInsets.all(16.r);
   static EdgeInsets get cardPadding => EdgeInsets.all(12.r);
   static EdgeInsets get errorPadding => EdgeInsets.all(32.r);

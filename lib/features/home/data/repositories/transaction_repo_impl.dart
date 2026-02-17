@@ -18,7 +18,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
       
       return Right(transactions); 
     } catch (e) {
-      return Left(CalculationFailure("Fayl oxunarkən xəta: ${e.toString()}"));
+      return Left(CalculationFailure("Error reading file: ${e.toString()}"));
     }
   }
 }

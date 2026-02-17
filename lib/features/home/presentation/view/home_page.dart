@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_strings.dart';
-import '../../../../core/extensions/transaction_grouping_extension.dart';
-import '../../../../core/common_widgets/shimmer.dart';
+import '../../../../shared/extensions/transaction_grouping_extension.dart';
+import '../../../../shared/extensions/common_widgets/shimmer.dart';
 import '../../domain/entities/comission_result.dart';
 import '../components/error_view.dart';
 import '../components/home_summary_header.dart';
@@ -14,7 +14,6 @@ import '../components/sticky_week_header.dart';
 import '../components/transaction_item_card.dart';
 import '../viewmodel/cubits/home_cubit.dart';
 import '../viewmodel/cubits/home_state.dart';
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -27,7 +26,10 @@ class HomePage extends StatelessWidget {
           return switch (state) {
             HomeLoading() || HomeInitial() => const ShimmerLoading(),
             HomeError() => const HomeErrorView(),
-            HomeLoaded() => _TransactionSliverContent(results: state.results),
+            HomeLoaded() => _TransactionSliverContent(
+                results: state.results, 
+                totalFee: state.totalFee
+              ),
             _ => const SizedBox.shrink(),
           };
         },
@@ -38,13 +40,16 @@ class HomePage extends StatelessWidget {
 
 class _TransactionSliverContent extends StatelessWidget {
   final List<CommissionResult> results;
-  const _TransactionSliverContent({required this.results});
+  final double totalFee; 
+
+  const _TransactionSliverContent({
+    required this.results, 
+    required this.totalFee
+  });
 
   @override
   Widget build(BuildContext context) {
     final groupedResults = results.groupByWeek();
-    final totalFee =
-        results.fold<double>(0, (sum, item) => sum + item.commission);
 
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
@@ -59,8 +64,7 @@ class _TransactionSliverContent extends StatelessWidget {
             titlePadding: AppSpacing.appBarTitlePadding,
             title: const Text(
               AppStrings.appBarTitle,
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
             background: HomeSummaryHeader(
               totalFee: totalFee,

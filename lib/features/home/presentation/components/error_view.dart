@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_strings.dart';
 
@@ -16,7 +17,7 @@ class HomeErrorView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/jpg/failure.jpg',
+              AppAssets.errorImage,
               width: 250.w,
               fit: BoxFit.contain,
               frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
@@ -46,7 +47,7 @@ class HomeErrorView extends StatelessWidget {
             ),
             12.verticalSpace,
             Text(
-              "An error occurred while loading your transactions. Please try again.",
+              AppStrings.transactionLoadError,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14.sp, color: Colors.grey[600]),
             ),

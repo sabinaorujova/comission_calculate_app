@@ -21,7 +21,7 @@ class CsvFileDataSource implements FileDataSource {
       }
       return rows;
     } catch (e) {
-      throw Exception("CSV faylı oxunarkən xəta: $e");
+      throw Exception("Failed to read CSV file: $e");
     }
   }
 }

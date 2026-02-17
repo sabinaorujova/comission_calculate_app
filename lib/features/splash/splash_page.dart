@@ -1,3 +1,4 @@
+import 'package:commssion_calculator/core/constants/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Lottie.asset(
-                'assets/jsons/splash.json',
+               AppAssets.splashAnimation,
                 width: 250.w,
                 repeat: false,
               ),
